@@ -9,8 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ObserverTest {
 
@@ -51,6 +50,7 @@ public class ObserverTest {
         textEditor.openFile("/Users/gaparmar/designpatterns/temp.txt");
         File file = new File("/Users/gaparmar/designpatterns/temp.txt");
         assertTrue(file.exists());
+        assertTrue(file.length()>0);
     }
 
     @Test
@@ -60,4 +60,15 @@ public class ObserverTest {
         assertEquals("Email message : \'/Users/gaparmar/designpatterns/temp.txt\' sent to admin@gaurav.com\n",outContent.toString());
     }
 
+    @Test
+    public void testUnsubscribe(){
+        File file = new File("/Users/gaparmar/designpatterns/temp.txt");
+        if(file.exists()) {
+            file.delete();
+        }
+
+        textEditor.getEventManager().unsubscribe(EventManager.EventType.OPEN,loggingListener);
+        textEditor.openFile("/Users/gaparmar/designpatterns/temp.txt");
+        assertFalse(file.exists());
+    }
 }

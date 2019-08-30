@@ -56,7 +56,7 @@ public class ObserverTest {
     }
 
     @After
-    public void release(){
+    public void tearDown(){
         System.setOut(originalOut);
         System.setErr(originalErr);
     }

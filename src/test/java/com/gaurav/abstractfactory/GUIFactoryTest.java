@@ -2,7 +2,7 @@
  * Copyright (c) 2019. by Gaurav Parmar
  *
  * Project: designpatterns
- * Class: FactoryTest
+ * Class: GUIFactoryTest
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -19,45 +19,64 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.gaurav.factory;
+package com.gaurav.abstractfactory;
 
-import static org.junit.Assert.*;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class FactoryTest {
-    Dialog dialog;
+import static org.junit.Assert.*;
+
+public class GUIFactoryTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
     private final PrintStream originalErr = System.err;
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
     }
 
-
     @After
-    public void tearDown(){
+    public void tearDown() throws Exception {
         System.setOut(originalOut);
         System.setErr(originalErr);
     }
 
     @Test
-    public void testWindowsButton(){
-        dialog = new WindowsDialog();
-        dialog.render();
-        assertEquals("Windows button :close dialog\nWindows button render\n",outContent.toString());
+    public void createWinButton() {
+        GUIFactory guiFactory = new WinFactory();
+        Button button = guiFactory.createButton();
+        button.paint();
+        assertEquals("Windows button\n",outContent.toString());
     }
 
     @Test
-    public void testHtmlButton(){
-        dialog = new WebDialog();
-        dialog.render();
-        assertEquals("HTML button :close dialog\nHTML button render\n",outContent.toString());
+    public void createMacButton() {
+        GUIFactory guiFactory = new MacFactory();
+        Button button = guiFactory.createButton();
+        button.paint();
+        assertEquals("MAC Button\n",outContent.toString());
+    }
+
+    @Test
+    public void createWinCheckbox() {
+        GUIFactory guiFactory = new WinFactory();
+        Checkbox checkbox = guiFactory.createCheckbox();
+        checkbox.paint();
+        assertEquals("Windows checkbox\n",outContent.toString());
+    }
+
+    @Test
+    public void createMacCheckbox() {
+        GUIFactory guiFactory = new MacFactory();
+        Checkbox checkbox = guiFactory.createCheckbox();
+        checkbox.paint();
+        assertEquals("MAC checkbox\n",outContent.toString());
     }
 }

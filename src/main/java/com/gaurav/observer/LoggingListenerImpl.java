@@ -1,4 +1,4 @@
-package observer;
+package com.gaurav.observer;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,8 +13,6 @@ public class LoggingListenerImpl implements EventListener {
     }
 
     public void update(String message) {
-        System.out.println("LoggingListenerImpl invoked");
-        System.out.println("Logging " + message + " to " + logFile);
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(logFile));
             writer.write(message);

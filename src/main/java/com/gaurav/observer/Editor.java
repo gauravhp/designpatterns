@@ -1,4 +1,4 @@
-package observer;
+package com.gaurav.observer;
 
 import java.io.File;
 
@@ -16,14 +16,14 @@ public class Editor {
 
     public void openFile(String path){
         this.file = new File(path);
-        System.out.println("Opening file : " + file.getName());
         eventManager.notifyListeners(EventManager.EventType.OPEN, path);
     }
 
     public void saveFile(){
         if(file.exists()){
-            System.out.println("Saving the file : " + file.getName());
             eventManager.notifyListeners(EventManager.EventType.SAVE,file.getAbsolutePath());
+        } else {
+            System.out.println("File does not exist");
         }
     }
 }

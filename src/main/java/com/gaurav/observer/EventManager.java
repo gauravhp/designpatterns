@@ -1,4 +1,4 @@
-package observer;
+package com.gaurav.observer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

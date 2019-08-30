@@ -1,6 +1,6 @@
 
 /*
- * Copyright (c) 2019. by Gaurav Parmar
+ * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
  * Class: WindowsDialog

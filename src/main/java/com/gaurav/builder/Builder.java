@@ -2,7 +2,7 @@
  * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
- * Class: Checkbox
+ * Class: Builder
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -19,8 +19,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.gaurav.abstractfactory;
+package com.gaurav.builder;
 
-public interface Checkbox {
-    void paint();
+public interface Builder {
+    public void reset();
+    public void setSeats(int noOfSeats);
+    public void setEngine(String engine);
+    public void setTripComputer(Boolean tripComputer);
+    public void setGps(Boolean gps);
 }

@@ -2,7 +2,7 @@
  * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
- * Class: Checkbox
+ * Class: CarBuilder
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -19,8 +19,37 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.gaurav.abstractfactory;
+package com.gaurav.builder;
 
-public interface Checkbox {
-    void paint();
+public class CarBuilder implements Builder {
+    private Car car;
+
+    public CarBuilder() {
+        this.reset();
+    }
+
+    public void reset() {
+        this.car = new Car();
+    }
+
+    public void setSeats(int noOfSeats) {
+        car.setSeats(noOfSeats);
+    }
+
+    public void setEngine(String engine) {
+        car.setEngine(engine);
+    }
+
+    public void setTripComputer(Boolean tripComputer) {
+        car.setTripComputer(tripComputer);
+    }
+
+    public void setGps(Boolean gps) {
+        car.setGps(gps);
+    }
+
+    public Car getProduct(){
+        return this.car;
+    }
+
 }

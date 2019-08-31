@@ -2,7 +2,7 @@
  * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
- * Class: Checkbox
+ * Class: Car
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -19,8 +19,37 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.gaurav.abstractfactory;
+package com.gaurav.builder;
 
-public interface Checkbox {
-    void paint();
+public class Car {
+    private int seats;
+    private String engine;
+    private Boolean tripComputer;
+    private Boolean gps;
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
+    public void setEngine(String engine) {
+        this.engine = engine;
+    }
+
+    public void setTripComputer(Boolean tripComputer) {
+        this.tripComputer = tripComputer;
+    }
+
+    public void setGps(Boolean gps) {
+        this.gps = gps;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "seats=" + seats +
+                ", engine='" + engine + '\'' +
+                ", tripComputer=" + tripComputer +
+                ", gps=" + gps +
+                '}';
+    }
 }

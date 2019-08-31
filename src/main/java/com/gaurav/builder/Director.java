@@ -2,7 +2,7 @@
  * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
- * Class: Checkbox
+ * Class: Director
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -19,8 +19,28 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.gaurav.abstractfactory;
+package com.gaurav.builder;
 
-public interface Checkbox {
-    void paint();
+public class Director {
+    private Builder builder;
+
+    public void setBuilder(Builder builder) {
+        this.builder = builder;
+    }
+
+    public void construcSportsVariant(Builder builder){
+        builder.reset();
+        builder.setSeats(2);
+        builder.setEngine("Sports Engine");
+        builder.setTripComputer(true);
+        builder.setGps(true);
+    }
+
+    public void constructSuvVariant(Builder builder){
+        builder.reset();
+        builder.setSeats(2);
+        builder.setEngine("SUV Engine");
+        builder.setTripComputer(false);
+        builder.setGps(true);
+    }
 }

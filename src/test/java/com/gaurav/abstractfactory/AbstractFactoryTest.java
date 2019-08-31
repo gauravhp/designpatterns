@@ -2,7 +2,7 @@
  * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
- * Class: GUIFactoryTest
+ * Class: AbstractFactoryTest
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
-public class GUIFactoryTest {
+public class AbstractFactoryTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;

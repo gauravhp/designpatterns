@@ -2,7 +2,7 @@
  * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
- * Class: ShapeTest
+ * Class: PrototypeTest
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class ShapeTest {
+public class PrototypeTest {
 
     @After
     public void tearDown() throws Exception {

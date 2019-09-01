@@ -2,7 +2,7 @@
  * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
- * Class: CompoundGraphic
+ * Class: Graphic
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -19,35 +19,9 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.gaurav.Composite;
+package com.gaurav.composite;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class CompoundGraphic implements Graphic {
-    private List<Graphic> graphicList;
-
-    public CompoundGraphic() {
-        graphicList = new ArrayList<Graphic>();
-    }
-
-    public void add(Graphic graphic){
-        graphicList.add(graphic);
-    }
-
-    public void remove(Graphic graphic){
-        graphicList.remove(graphic);
-    }
-
-    public void move(int x, int y) {
-        for(Graphic graphic: graphicList){
-            graphic.move(x,y);
-        }
-    }
-
-    public void draw() {
-        for(Graphic graphic: graphicList){
-            graphic.draw();
-        }
-    }
+public interface Graphic {
+    void move(int x, int y);
+    void draw();
 }

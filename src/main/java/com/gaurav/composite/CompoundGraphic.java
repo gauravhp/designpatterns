@@ -2,7 +2,7 @@
  * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
- * Class: Circle
+ * Class: CompoundGraphic
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -19,18 +19,35 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.gaurav.Composite;
+package com.gaurav.composite;
 
-public class Circle extends Dot {
-    int radius;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Circle(int x, int y, int radius) {
-        super(x, y);
-        this.radius = radius;
+public class CompoundGraphic implements Graphic {
+    private List<Graphic> graphicList;
+
+    public CompoundGraphic() {
+        graphicList = new ArrayList<Graphic>();
     }
 
-    @Override
+    public void add(Graphic graphic){
+        graphicList.add(graphic);
+    }
+
+    public void remove(Graphic graphic){
+        graphicList.remove(graphic);
+    }
+
+    public void move(int x, int y) {
+        for(Graphic graphic: graphicList){
+            graphic.move(x,y);
+        }
+    }
+
     public void draw() {
-        System.out.println("Draw circle at " + x + "," + y + " with radius " + radius);
+        for(Graphic graphic: graphicList){
+            graphic.draw();
+        }
     }
 }

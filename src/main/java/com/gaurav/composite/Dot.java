@@ -19,7 +19,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.gaurav.Composite;
+package com.gaurav.composite;
 
 public class Dot implements Graphic {
     protected int x;

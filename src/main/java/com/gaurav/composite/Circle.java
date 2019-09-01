@@ -2,7 +2,7 @@
  * Copyright (c) 2019. Gaurav Parmar
  *
  * Project: designpatterns
- * Class: Graphic
+ * Class: Circle
  * GitHub profile: https://github.com/gauravhp
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -19,9 +19,18 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.gaurav.Composite;
+package com.gaurav.composite;
 
-public interface Graphic {
-    void move(int x, int y);
-    void draw();
+public class Circle extends Dot {
+    int radius;
+
+    public Circle(int x, int y, int radius) {
+        super(x, y);
+        this.radius = radius;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Draw circle at " + x + "," + y + " with radius " + radius);
+    }
 }

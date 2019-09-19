@@ -1,3 +1,6 @@
 target
 designpatterns.iml
 .idea
+.DS_Store
+.gitignore
+design-patterns-en/

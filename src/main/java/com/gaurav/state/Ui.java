@@ -28,6 +28,12 @@ public class Ui {
     private Player player;
     private static JTextField textField = new JTextField();
 
+    public static void main(String[] args) {
+        Player player = new Player();
+        Ui ui = new Ui(player);
+        ui.init();
+    }
+
     public Ui(Player player) {
         this.player = player;
     }
